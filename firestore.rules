@@ -1,0 +1,42 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function isValidRsvp(data) {
+      return data.keys().hasAll(['names', 'attending', 'guestCount', 'submittedAt']) &&
+             data.keys().hasOnly(['names', 'attending', 'guestCount', 'submittedAt', 'songRequest']) &&
+             data.names is string && data.names.size() >= 1 && data.names.size() <= 150 &&
+             data.attending is bool &&
+             data.guestCount is number && data.guestCount >= 0 && data.guestCount <= 50 &&
+             data.submittedAt is string && data.submittedAt.size() <= 50 &&
+             (!('songRequest' in data) || (data.songRequest is string && data.songRequest.size() <= 1000));
+    }
+
+    match /rsvps/{rsvpId} {
+      allow get: if isValidId(rsvpId);
+      allow list: if true;
+      allow create: if isValidId(rsvpId) && isValidRsvp(incoming());
+      allow update: if isValidId(rsvpId) && isValidRsvp(incoming());
+      allow delete: if isValidId(rsvpId);
+    }
+
+    // Connection health check document
+    match /test/{docId} {
+      allow read: if true;
+    }
+  }
+}

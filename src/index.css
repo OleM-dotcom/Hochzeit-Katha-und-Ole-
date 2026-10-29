@@ -1,27 +1,33 @@
 @import "tailwindcss";
 
 :root {
-  /* Colors extracted directly from the Save the Date ticket */
-  --ticket-wood-dark: #140e0a;
-  --ticket-wood-mid: #221812;
-  --ticket-parchment: #f6eedf;
-  --ticket-parchment-light: #fbf7f0;
-  --ticket-parchment-border: #e3d3be;
-  --ticket-orange: #d6611e;
-  --ticket-orange-dark: #b84c12;
-  --ticket-orange-light: #e87733;
-  --ticket-gold: #cfa052;
-  --ticket-gold-dark: #a87932;
-  --ticket-black: #1a130f;
-  --ticket-charcoal: #2b211a;
-  --ticket-muted: #7d6b5e;
+  /* Cheerful, Sunlit Summer Floral Palette from Bouquet (IMG_6235) */
+  --summer-bg: #fdf8ee;
+  --summer-champagne: #faebd7;
+  --summer-sunshine: #fcd58e;
+  --summer-marigold: #df931d;
+  --summer-terracotta: #d7541d;
+  --summer-terracotta-hover: #b84112;
+  --summer-coral: #dc6b6b;
+  --summer-dahlia: #cf3464;
+  --summer-bordeaux: #92092f;
+  --summer-sage: #858e7f;
+  --summer-olive: #4f5a3b;
+  --summer-text-main: #261c14;
+  --summer-text-muted: #665444;
 }
 
 @layer base {
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    color: #1a130f;
-    background-color: var(--ticket-wood-dark);
+    color: var(--summer-text-main);
+    background-color: var(--summer-bg);
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
@@ -36,22 +42,29 @@
   }
 }
 
-/* Wood plank background with subtle lighting */
-.bg-wood-canvas {
-  background-color: #140e0a;
+/* Cheerful sun-drenched summer garden & festival canvas */
+.bg-summer-canvas {
+  background-color: #fdf8ee;
   background-image: 
-    radial-gradient(ellipse at 50% 15%, rgba(214, 97, 30, 0.12) 0%, transparent 60%),
-    radial-gradient(ellipse at 85% 70%, rgba(207, 160, 82, 0.08) 0%, transparent 50%),
-    linear-gradient(to bottom, #140e0a, #1a120d, #120c08);
+    radial-gradient(ellipse at 50% 0%, rgba(254, 235, 199, 0.95) 0%, transparent 65%),
+    radial-gradient(circle at 85% 18%, rgba(247, 185, 134, 0.28) 0%, transparent 45%),
+    radial-gradient(circle at 12% 35%, rgba(223, 147, 29, 0.22) 0%, transparent 50%),
+    radial-gradient(circle at 88% 65%, rgba(220, 107, 107, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 15% 85%, rgba(207, 52, 100, 0.12) 0%, transparent 50%),
+    linear-gradient(to bottom, #fffdf8, #fdf8ee 30%, #faefe0 70%, #f6e8d2);
 }
 
-/* Vintage parchment texture card */
-.bg-parchment-card {
-  background-color: #f6eedf;
-  background-image: radial-gradient(#eadbc5 1px, transparent 1px);
-  background-size: 24px 24px;
+.summer-card-shadow {
+  box-shadow: 0 20px 40px -12px rgba(215, 84, 29, 0.14), 0 8px 24px -6px rgba(146, 9, 47, 0.06);
 }
 
 .ticket-drop-shadow {
-  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.65), 0 12px 28px -6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(215, 84, 29, 0.22), 0 10px 25px -6px rgba(42, 34, 27, 0.10);
+}
+
+/* Warm champagne parchment card */
+.bg-parchment-card {
+  background-color: #fffcf7;
+  background-image: radial-gradient(#eddcc4 1px, transparent 1px);
+  background-size: 24px 24px;
 }

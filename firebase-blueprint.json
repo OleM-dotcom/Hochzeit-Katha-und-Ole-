@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "RsvpEntry": {
+      "title": "RsvpEntry",
+      "description": "Guest RSVP response or song request entry for the wedding",
+      "type": "object",
+      "properties": {
+        "names": {
+          "type": "string",
+          "description": "Name or names of the wedding guests",
+          "minLength": 1,
+          "maxLength": 150
+        },
+        "attending": {
+          "type": "boolean",
+          "description": "Whether the guest is attending the wedding"
+        },
+        "guestCount": {
+          "type": "number",
+          "description": "Number of attendees confirmed"
+        },
+        "songRequest": {
+          "type": "string",
+          "description": "Song requests for the wedding DJ playlist",
+          "maxLength": 1000
+        },
+        "submittedAt": {
+          "type": "string",
+          "description": "ISO timestamp of when the response was submitted"
+        }
+      },
+      "required": [
+        "names",
+        "attending",
+        "guestCount",
+        "submittedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/rsvps/{rsvpId}": {
+      "schema": "RsvpEntry",
+      "description": "Collection of wedding RSVP responses and song requests accessible across devices"
+    }
+  }
+}
