@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+:root {
+  /* Colors extracted directly from the Save the Date ticket */
+  --ticket-wood-dark: #140e0a;
+  --ticket-wood-mid: #221812;
+  --ticket-parchment: #f6eedf;
+  --ticket-parchment-light: #fbf7f0;
+  --ticket-parchment-border: #e3d3be;
+  --ticket-orange: #d6611e;
+  --ticket-orange-dark: #b84c12;
+  --ticket-orange-light: #e87733;
+  --ticket-gold: #cfa052;
+  --ticket-gold-dark: #a87932;
+  --ticket-black: #1a130f;
+  --ticket-charcoal: #2b211a;
+  --ticket-muted: #7d6b5e;
+}
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: #1a130f;
+    background-color: var(--ticket-wood-dark);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Cinzel', 'Playfair Display', serif;
+  }
+
+  .font-editorial {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+/* Wood plank background with subtle lighting */
+.bg-wood-canvas {
+  background-color: #140e0a;
+  background-image: 
+    radial-gradient(ellipse at 50% 15%, rgba(214, 97, 30, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 85% 70%, rgba(207, 160, 82, 0.08) 0%, transparent 50%),
+    linear-gradient(to bottom, #140e0a, #1a120d, #120c08);
+}
+
+/* Vintage parchment texture card */
+.bg-parchment-card {
+  background-color: #f6eedf;
+  background-image: radial-gradient(#eadbc5 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.ticket-drop-shadow {
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.65), 0 12px 28px -6px rgba(0, 0, 0, 0.5);
+}

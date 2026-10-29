@@ -1,0 +1,6 @@
+{
+  "name": "Festival of Love – Katharina & Ole",
+  "description": "Save the Date & RSVP Website für die Hochzeit von Katharina & Ole am 27.08.2027 mit interaktivem QR-Code Generator und Gästeliste.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
